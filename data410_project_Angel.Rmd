@@ -1,0 +1,73 @@
+---
+title: "Cancer Regression Project"
+author: "Paul Sciarpelletti, Angel Yu, Bibiana Cortes"
+date: "26/02/2022"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+**Description of dataset:** 
+
+Source: https://data.world/nrippner/ols-regression-challenge
+
+This dataset contains cancer related data from 2010-2016 based on regions of the United States. The data source is the 2013 US census, government clinical trials and the National Cancer Institute; this dataset and project refers only to lung cancer data. The cancer related variables we will focuse on are "avgAnnCount", "avgDeathsPerYear", "incidenceRate" and the created population adjusted variable "adjustedDeathsPerYear". Below is the list of some of the variables in the dataset; description (a) refers to cancer related variables, and  description (b) refers to unrelated to cancer explanatory variables:
+
+- TARGET_deathRate: Response variable. Mean per capita (100,000) cancer mortalities(a)
+
+- avgAnnCount: Mean number of reported cases of cancer diagnosed annually(a)
+
+- avgDeathsPerYear: Mean number of reported mortalities due to cancer(a)
+
+- incidenceRate: Mean per capita (100,000) cancer diagnosis(a)
+
+- medianIncome: Median income per county (b)
+
+- povertyPercent: Percent of populace in poverty (b)
+
+- studyPerCap: Per capita number of cancer-related clinical trials per county (a)
+
+- MedianAge: Median age of county residents (b)
+
+- PctBachDeg25_Over: Percent of county residents ages 25 and over highest education attained: bachelor's degree (b)
+
+- PctPrivateCoverage: Percent of county residents with private health coverage (b)
+
+- PctPrivateCoverageAlone: Percent of county residents with private health coverage alone (no public assistance) (b)
+
+- PctPublicCoverage: Percent of county residents with government-provided health coverage (b)
+
+- PctPubliceCoverageAlone: Percent of county residents with government-provided health coverage alone (b)
+
+- PctWhite: Percent of county residents who identify as White (b)
+
+- PctBlack: Percent of county residents who identify as Black (b)
+
+- PctAsian: Percent of county residents who identify as Asian (b)
+
+- PctOtherRace: Percent of county residents who identify in a category which is not White, Black, or Asian (b)
+
+- *adjustedDeathsPerYear: number of reported mortalities due to cancer divided by population, so number of cancer deaths per person. (a)
+
+
+**Analysis questions**
+
+The aim of this project is to answer the question: What regressor or combination of regressors best predicts the death rate due to cancer.
+
+**Regression techniques**
+
+We started our project by viewing the raw data. From our initial investigation, we noticed that the data is based on regions with varying populations. Because many population adjusted variables come in the form of percentages, we need to adjust the death rate in order to analyze the data through regression. Therefore, we created adjustedDeathsPerYear as a relative variable that is based on cancer deaths per person????. We will use adjustedDeathsPerYear and incidenceRate as the key response variables. As a primary investigation into linearity, we will use a pair plot diagram to look for early signs of linearity in the data.
+
+We will fit both simple and multi-linear regression models to discover a best model with techniques such as stepwise selection and comparing adjusted R-squared values. Next,  we will assess the accuracy of the coefficient estimates by performing hypothesis tests.
+
+We will then be taking a closer look at the assumptions for linear models: linearity between independent and dependent variables, independence of errors, homoscedasticity, normality of errors distribution, and no multicollinearity. For this, we will use plots such as scatter plots, residuals versus fitted values, QQ plots, Scale-location plot. As well, we will use Cook-distance plots and residuals versus leverage plot to detect outliers and influential points. For multicollinearity, we will use scatter plots to check correlation between variables. We will check for high standard errors for the regression coefficients and  large changes in coefficients when adding predictors, and also we can use the variance inflation factor VIF.  
+
+Ultimately, we will seek to prove linearity through OLS regression and  minimize the mean squared error. By doing so, we hope to uncover insight into some of the (b) variables that are unrelated to lung cancer biologically but provide statistical significance in estimating cancer incident rates and deaths. The results will hopefully provide meaningful evidence for future public health investigations and measures in the fight against lung cancer. 
+
+
+  
+ 
+   
